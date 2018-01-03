@@ -61,8 +61,8 @@
 					<td width="400"><img src="img/logo.png"></td>
 				</tr>
 				<tr height="55">
-					<th width="164" >手机号</th>
-					<td width="400"><input id="phone"class="txt1" type="txte" placeholder="请输入手机号"/></td>
+					<th width="164" >用户名</th>
+					<td width="400"><input id="username"class="txt1" type="txte" placeholder="请输入用户名"/></td>
 				</tr>
 				<tr height="55">
 					<th width="164">验证码</th>
@@ -78,7 +78,7 @@
 				</tr>
 				<tr height="55">
 					<th width="164"></th>
-					<td width="400"><input class="txt3" type="checkbox"/>同意<span class="zhuce"> 良仓注册条款</span></td>
+					<td width="400"><input class="txt3"  type="checkbox"/>同意<span class="zhuce"> 良仓注册条款</span></td>
 				</tr>
 				<tr height="55">
 					<th width="164"></th>
@@ -91,7 +91,7 @@
 						<a href="javascript:;"><img src="img/register_02.png" title="新浪微博"></a>
 						<a href="javascript:;"><img src="img/register_03.png" title="豆瓣"></a>
 						<a href="javascript:;"><img src="img/register_04.png" title="腾讯微博"></a>
-						<a id="a2" href="javascript:;">登录良仓</a>
+						<a id="a2" href="#">登录良仓</a>
 					</td>
 				</tr>
 			</table>
@@ -102,32 +102,30 @@
 		</div>
 	</body>
 </html>
+<script src="js/login&register.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 	var oRegister = document.getElementById('a1');
-	var oPhone = document.getElementById('phone');
+	var oLogin = document.getElementById('a2');
+	var oUsername = document.getElementById('username');
 	var oPassword = document.getElementById('password');
+	var agree = document.querySelectorAll('table tr td .txt3');
 	
-
+	console.log(agree)
 	oRegister.onclick = function(){
-		var stroPhone = oPhone.value;
+		var stroUsername = oUsername.value;
 		var stroPassword = oPassword.value;
-		var xhr = new XMLHttpRequest();
+		var json={
+			username:stroUsername,
+			password:stroPassword,
+			status:"register"
+		}
 		
-		xhr.onreadystatechange = function(){
-		
-			if(xhr.readyState == 4){
-				
-				var obj = xhr.responseText;
-				obj = JSON.parse(obj);
-				console.log(obj);
-		
-			}
-		};
-		
-		xhr.open('POST','http://h6.duchengjiu.top/shop/api_user.php',true);
-		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
-		xhr.send('username='+stroPhone+'&password='+stroPassword+'&status=register');
+		server(json,function(obj){
+			
+		});
 	}
-
+	oLogin.onclick = function(){
+		location.href = "http://127.0.0.1:8020/liangcang/login.html";
+	}
 
 </script>

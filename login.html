@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{margin: 0px;padding: 0px;}
+			li{list-style: none;}
+			img{border: none;}
+			a{text-decoration: none;}
+			body{
+				background:#fff;
+			/*	position: absolute;*/
+			}
+			#box{width: 500px;
+				height: 240px;
+				background:#fff;
+				margin: 0px auto;text-align: center;margin-top: 50px;
+			}
+			#box img{
+				
+				
+			}
+			.p1s, .p2s, .p3s{
+				width: 620px;
+				height: 60px;
+			}
+			#txt1{
+				/*margin: 0px 600px;*/
+				border: 1px solid #fff;
+				border-bottom: 1px solid #000;
+				height: 25px;
+				width: 380px;
+				background:url(img/nlphone.png)no-repeat;
+				outline:none;
+				position: absolute; left:50%;margin-left:-168px;top:auto;
+				font-size: 20px;
+				padding-left: 30px;
+			}
+			#txt2{
+				border: 1px solid #fff;
+				border-bottom: 1px solid #000;
+				height: 25px;
+				width: 215px;
+				background:url(img/nlcode.png)no-repeat;
+				outline:none;
+				position: absolute; left:50%;margin-left:-168px;top:auto;
+				font-size: 20px;
+				padding-left: 30px;
+			}
+			#btn{
+				width:140px;
+				height: 36px;
+				border: 1px solid #000;
+				border-radius:5px;line-height: 36px;
+				position: absolute; left:50%;margin-left:100px;top:340px;
+			}
+			#span1{
+				font: 18px/36px "微软雅黑";
+				margin: 0px 18px;
+				font-weight: 100;
+			}
+			a{
+				color: #000000;
+			}
+			
+			.p3s{
+				position: absolute; left:50%;margin-left:-168px;top:auto;
+			}
+			#btn2{
+				width: 374px;
+				height: 63px;
+				background: #25292e;
+				position: absolute; left:50%;margin-left:-168px;top:auto;margin-top: 55px;
+				border-radius:5px;
+			}
+			#span3{
+				font: 30px/63px "微软雅黑";
+				color: #fff;
+				/*text-align:center;*/
+				margin-left: 155px;
+			}
+			.p4s{
+				position: absolute; left:50%;margin-left:-168px;top:auto;margin-top: 159px;
+			}
+
+		</style>
+
+	</head>
+<body>
+		<div id="box">
+			<img src="img/nlicon.png"  />
+		</div>
+		<p class="p1s"><input type="text" placeholder="输入用户名"id="txt1"value="" /></p>
+		<p class="p2s"><input type="password" placeholder="输入密码"id="txt2" /><div id="btn">
+<span id="span1">获取验证码</span></div></p>
+		<p class="p3s"><input type="checkbox"id="cb" /><span id="span2">自动登陆</span></p>
+		<div id="btn2">
+			<a href="javascript:;" id="span3">登录</a>
+		</div>
+		<a href="#"><p class="p4s">更多登录方式&gt;</p></a>	
+</body>
+</html>
+<script src="js/login&register.js"></script>
+<script type="text/javascript">
+	var oUsername = document.getElementById('txt1')
+	var oPassword = document.getElementById('txt2')
+	var oLogin = document.getElementById('span3');
+	var autoLogin = document.getElementById('cb');
+	oLogin.onclick = function(){
+		var strUsername = oUsername.value;
+		var strPassword = oPassword.value;
+		var json={
+			username:strUsername,
+			password:strPassword,
+			status:"login"
+		}
+		server(json,function(obj){
+			if(obj.code == 0){
+				alert("登陆成功")
+				if(autoLogin.checked == true){
+					localStorage.setItem("username",strUsername)
+					localStorage.setItem("password",strPassword)
+				}
+				
+			}else{
+				alert(obj.message)
+			}
+		});
+	}
+	window.onload = function(){
+		var strUsername = localStorage.getItem("username")
+		var strPassword = localStorage.getItem("password")
+		if(strUsername != null && strPassword != null){
+			
+			var json={
+				username:strUsername,
+				password:strPassword,
+				status:"login"
+			}
+			server(json,function(obj){
+				alert("自动登录成功");
+			});
+		}
+	}
+</script>
