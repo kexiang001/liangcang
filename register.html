@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			a{text-decoration:none}
+			body{
+				background: #989898;
+			}
+			.register{
+				width: 564px;height: 560px;margin: 170px auto 0;
+			}
+			table{
+				color: #fff;
+			}
+			table tr input.txt1{
+				width: 260px;height: 45px;outline: none;border: none;background: #cbcbcb;padding-left:10px ;
+				
+			}
+			span.zhuce{
+				color: #3789a9;
+			}
+			table tr input.txt2{
+				width: 202px;height: 45px;outline: none;
+			}
+			table tr input.txt3{
+				margin-right: 4px;
+			}
+			#a1{
+				width: 270px;height: 45px;background: #25292e;color: #fff;display: block;
+				line-height: 45px;text-align: center;
+			}
+			table tr td img{
+				margin-right: 10px;float: left;
+			}
+			table tr#txt4 td img:hover{
+				opacity: 0.6;
+			}
+			#a2{
+				margin-left: 90px;color: #fff;font-size: 14px;display: block;
+				width:56px;height: 20px;border-bottom: 1px solid #fff;float: left;
+			}
+			.guding{
+				width:160px;line-height: 38px;position:fixed;right: 10px;bottom: 30px;
+			}
+			.guding a{
+				line-height: 38px;color: #fff;text-align: center;float: left;margin-right: 20px;
+			}
+			.guding img{
+				width:38px;float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="register">
+			<table border="0" cellspacing="0" margin-topcellpadding="0">
+				<tr class="trr" height="122">	
+					<th width="164"></th>
+					<td width="400"><img src="img/logo.png"></td>
+				</tr>
+				<tr height="55">
+					<th width="164" >手机号</th>
+					<td width="400"><input id="phone"class="txt1" type="txte" placeholder="请输入手机号"/></td>
+				</tr>
+				<tr height="55">
+					<th width="164">验证码</th>
+					<td width="400"><input class="txt1 txt2" type="txte" placeholder="输入验证码"/> 看不清，换一张</td>
+				</tr>
+				<tr height="55">
+					<th width="164">创建密码</th>
+					<td width="400"><input class="txt1" id="password"type="password" placeholder="6－20位字符组成，区分大小写"/> 弱 中 强</td>
+				</tr>
+				<tr height="55">
+					<th width="164">密码确认</th>
+					<td width="400"><input class="txt1" type="password" placeholder="确认密码"/></td>
+				</tr>
+				<tr height="55">
+					<th width="164"></th>
+					<td width="400"><input class="txt3" type="checkbox"/>同意<span class="zhuce"> 良仓注册条款</span></td>
+				</tr>
+				<tr height="55">
+					<th width="164"></th>
+					<td width="400"><a id="a1"href="javascript:;">立即注册</a></td>
+				</tr>
+				<tr id="txt4"height="55">
+					<th width="164"></th>
+					<td width="400">
+						<a href="javascript:;"><img src="img/register_01.png" title="QQ"></a>
+						<a href="javascript:;"><img src="img/register_02.png" title="新浪微博"></a>
+						<a href="javascript:;"><img src="img/register_03.png" title="豆瓣"></a>
+						<a href="javascript:;"><img src="img/register_04.png" title="腾讯微博"></a>
+						<a id="a2" href="javascript:;">登录良仓</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="guding">
+			<a href="javascript:;">TomDixon</a>
+			<a href="javascript:;"><img src="img/register_05.png"></a>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var oRegister = document.getElementById('a1');
+	var oPhone = document.getElementById('phone');
+	var oPassword = document.getElementById('password');
+	
+
+	oRegister.onclick = function(){
+		var stroPhone = oPhone.value;
+		var stroPassword = oPassword.value;
+		var xhr = new XMLHttpRequest();
+		
+		xhr.onreadystatechange = function(){
+		
+			if(xhr.readyState == 4){
+				
+				var obj = xhr.responseText;
+				obj = JSON.parse(obj);
+				console.log(obj);
+		
+			}
+		};
+		
+		xhr.open('POST','http://h6.duchengjiu.top/shop/api_user.php',true);
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+		xhr.send('username='+stroPhone+'&password='+stroPassword+'&status=register');
+	}
+
+
+</script>
