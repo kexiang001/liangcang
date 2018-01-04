@@ -31,6 +31,19 @@
 			#header ul li.last-li{
 				margin-right: 0px;
 			}
+			#nav{
+				width: 100px;height: 400px;margin-left: 20px;
+			}
+			#nav li{
+				,margin: 20px;
+			}
+			#box ul li{
+				float: left;border: 1px solid red;height: 500px;
+				width: 300px;
+			}
+			#box ul li img{
+				width: 300px;
+			}
 		</style>
 	</head>
 	<body>
@@ -57,11 +70,21 @@
 				</ul>
 			</div>
 		</div>
+		<ul id="nav">
+			
+		</ul>
+		<div id="box">
+			<ul id="list">
+				
+			</ul>
+		</div>
 	</body>
 </html>
 <script src="js/login&register.js"></script>
 <script type="text/javascript">
-	var obj = {
+ 	var oUl = document.getElementById("nav")
+ 	var oUla = document.getElementById("list")
+	ajax({
 		method:"GET",
 		url: "http://csit.top/api_cat.php",
 		json:{},
@@ -70,12 +93,69 @@
 			var arr = date.data;
 			console.log(typeof date.data)
 			for(var i=0;i<arr.length;i++){
-				console.log(arr[i].cat_name);
-				var p = document.createElement('p')
-				p.innerHTML = arr[i].cat_name;
-				document.body.appendChild(p,true);
+				var oLi = document.createElement("li");
+				oLi.innerHTML = '<a href="#" onclick="func('+ arr[i].cat_id +')">'
+				+arr[i].cat_name+'</a>';
+				oUl.appendChild(oLi);
 			}
 		}
-	}
-	ajax(obj);
+	}); 
+//	function func(a){
+//		ajax({
+//		method: "GET",
+//		url: "http://csit.top/api_goods.php",
+//		json: {
+//			cat_id: a,  // 分类： 45， 62
+//			page: 1,
+//			pagesize: 1000
+//		},
+//		pc: function(a) {
+//			
+//			var arr = a.data 
+//			for (var i = 0; i < arr.length; i++) { 
+//				var oLi = document.createElement('li');
+//				var oH2 = document.createElement('h2');
+//				var oP = document.createElement('p');
+//				var oSpan = document.createElement('span');
+//				 oH2.innerHTML = arr[i].goods_name;
+//				 oP.innerHTML = arr[i].goods_desc;
+//				 oSpan.innerHTML = '¥' + arr[i].price;
+//				oLi.innerHTML = '<img src="' +  arr[i].goods_thumb+ '" />'
+//				oLi.appendChild(oH2);
+//				oLi.appendChild(oP);
+//				oLi.appendChild(oSpan);
+//				oUla.appendChild(oLi);
+//				
+//			}
+//			
+//		}
+//	})
+//	}
+	function func(a) {
+	
+	ajax({
+		method: "GET",
+		url: "http://csit.top/api_goods.php",
+		json: {
+			cat_id: a,  
+			page: 1,
+			pagesize: 1000
+		},
+		pc: function(a) {
+			
+			var b = ""
+			
+			var arr = a.data  
+			for (var i = 0; i < arr.length; i++) {
+				
+				b +=('<li>'+ '<img src="' +  arr[i].goods_thumb+ '" />'
+				+ '<h2>'+arr[i].goods_name+'</h2>'
+				+'<p>'+arr[i].goods_desc+'</p>'
+				+ '</span>'+'¥' + arr[i].price+'</span>'+'</li>');
+			}
+			
+			document.getElementById("list").innerHTML = b
+		}
+	})
+}
 </script>

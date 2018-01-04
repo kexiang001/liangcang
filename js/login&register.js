@@ -51,7 +51,10 @@ function ajax(obj){
 			obj.pc(ob);
 		}
 	}
-	
+	if (obj.method == "GET") { 
+		obj.url += "?"  
+		obj.url += getParams(obj.json) 
+	}
 	xhr.open(obj.method, obj.url, true);
 	
 	if(obj.method == "GET"){
