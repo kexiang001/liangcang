@@ -39,3 +39,29 @@ function getParams(obj)
 	str = str.substring(0, str.length-1);
 	return str;
 }
+function ajax(obj){
+	var xhr = new XMLHttpRequest();
+	
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			
+			var str = xhr.responseText;
+			
+			var ob = JSON.parse(str);
+			obj.pc(ob);
+		}
+	}
+	
+	xhr.open(obj.method, obj.url, true);
+	
+	if(obj.method == "GET"){
+		xhr.send();
+	}else{
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	
+		var str = getParams(obj.json);
+		xhr.send(str);
+	}
+	
+	
+}

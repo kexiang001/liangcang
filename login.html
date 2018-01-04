@@ -117,7 +117,7 @@
 		}
 		server(json,function(obj){
 			if(obj.code == 0){
-				alert("登陆成功")
+				alert(obj.message)
 				if(autoLogin.checked == true){
 					localStorage.setItem("username",strUsername)
 					localStorage.setItem("password",strPassword)
