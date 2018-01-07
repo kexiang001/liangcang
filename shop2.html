@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			a{text-decoration:none}
+			li{list-style: none;}
+			#shop-up{
+				width: 900px;height: 425px;
+				font-size: 14px;margin: 0 auto;
+			}
+			#shop-up img{width:900px;}
+			#shop-up span{
+				float: left;margin:0 40px;text-align: center;line-height: 86px;
+			}
+			#shop-d{
+				width: 620px;height: 86px;padding-left: 280px;
+			}
+			#shop-up p{
+				float: left;line-height: 86px;
+			}
+			#p1{
+				color:#6966ea;
+			}
+			#address{
+				width: 900px;height: 270px;position: relative;padding-top: 30px;
+				font-size: 14px;margin: 0 auto;border-top: 1px solid #ccc;
+			}
+			#address h3{
+				position: absolute;top: -24px;font-size: 14px;font-weight: normal;
+			}
+			#address p{
+				height:40px;font-size: 14px;color: #5F5F5F;
+			}
+			#address input{
+				margin-left: 40px;height:20px
+			}
+			#address select.select1{
+				margin-left: 55px;height:20px;margin-right: 10px;
+			}
+			#address a{
+				width:80px;height:20px;background: #4675ED;display: block;text-align: center;line-height: 20px;margin-left: 108px;
+				color: #fff;font-size: 12px;
+			}
+			#details-up{
+				width: 900px;height: 100px;position: relative;padding-top: 30px;
+				font-size: 14px;margin: 0 auto;border-top: 1px solid #ccc;
+			}
+			#details-up h3{
+				position: absolute;top: -24px;font-size: 14px;font-weight: normal;
+			}
+			#details-up ul li{
+				width: 900px;height:90px;border-bottom:  1px solid #eae9e9;
+			}
+			#details-up ul li img{
+				width:72px;float: left;margin-top: 9px;margin-right: 20px;
+			}
+			#details-up ul li span{
+				font-size: 14px;line-height: 90px;
+			}
+			#txt1{
+				margin: 0 30px 0 420px;
+			}
+			#details{
+				border-top: 1px solid #ccc;width:900px;height:400px;margin: 0 auto;position: relative;
+			}
+			#details p{
+				font-size: 14px;color: #5F5F5F;margin-top: 10px;
+			}
+			#txt2{
+				width:600px;height: 26px;outline: none;background: #EAE9E9;border: none;padding-left: 4px;
+			}
+			#txt3{
+				width:200px;height: 22px;outline: none;margin-top:20px ;padding-left: 4px;border: 2px solid #EAE9E9;
+				margin-left: 20px;
+			}
+			#details p a{
+				width: 72px;height:24px;background: #449dc6;color: #fff;display: block;line-height: 24px;text-align: center;
+				
+			}
+			#details p a#a1{
+				position: absolute;left:310px;top:67px;
+			}
+			#details p a#a2{
+				position: absolute;left:374px;top:346px;width: 152px;
+			}
+			#txt4{
+				width: 900px;text-align: right;
+			}
+			#details p.txte{
+				width: 900px;color: red;font-size: 12px;
+			}
+			#details p#txt4>span{
+				color: #4675ED;font-size: 18px;
+			}
+			#txt5{
+				text-align: center;width:900px
+			}
+			#txt5 img{
+				float: left;margin-left: 4px;margin-right: 400px;
+			}
+			#check{
+				float: left;margin-left: 410px;margin-top: 10px;
+			}
+			#details p#txt6{
+				text-align: center;width:900px;height:30px;padding-top: 30px;float: left;color:#4675ED;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="shop-up">
+			<img src="img/shop-2.jpg">
+			<div id="shop-d">
+				<span id="span">
+					|
+				</span>
+				<p>购物车</p>
+				<span id="">
+					|
+				</span>
+				<p id="p1">付款</p>
+				<span id="">
+					|
+				</span>
+			</div>
+		</div>
+		<div id="address">
+			<h3>收货地址</h3>
+			<p><span>收货人姓名</span><input type="text"/></p>	
+			<p ><span>省 ／ 市 	</span> 
+				<select class="select1">
+					<option value="">所在省份</option>
+					<option value="">河北省</option>
+					<option value="">山西省</option>
+					<option value="">辽宁省</option>
+					<option value="">吉林省</option>
+					<option value="">黑龙江省</option>
+					<option value="">江苏省</option>
+					<option value="">浙江省</option>
+					<option value="">安徽省</option>
+					<option value="">福建省</option>
+					<option value="">江西省</option>
+					<option value="">山东省</option>
+					<option value="">河南省</option>
+					<option value="">湖北省</option>
+					<option value="">湖南省</option>
+					<option value="">广东省</option>
+					<option value="">海南省</option>
+					<option value="">贵州省</option>
+					<option value="">云南省</option>
+					<option value="">陕西省</option>
+					<option value="">甘肃省</option>
+				</select>  
+				<select>
+					<option value="">所在市</option>
+				</select>
+  
+			</p>
+			<p><span>详 细 地 址</span><input type="text"/>	</p>
+			<p><span>手 机 号 码</span><input type="text"/>	</p>
+			<a href="javascript:;">保存地址</a>
+  
+	
+
+		</div>
+		<div id="details-up">
+			<h3>订单详情</h3>
+			<ul>
+				<li>
+					<img src="img/shop-1.jpg">
+
+					<span id="">Bamford ／ 玫瑰身体乳250ml</span>
+					<span id="txt1">x3</span>
+					<span id="">¥948</span>
+				</li>
+			</ul>
+  
+	
+
+		</div>
+		<div id="details">
+			<p><span id="">备注：</span><input id="txt2" type="text" placeholder="您可以在这里写下订单备注，不得超过350个字符"/></p>
+			<p><span id="">激活代金券</span><input id="txt3"type="text" placeholder="输入代金券"/><a id="a1"href="javascript:;">确认使用</a></p>
+
+
+
+			<p id="txt4">代金券减免   - 0.00元</p>
+			<p id="txt4">付款总额 : <span>¥948.00</span></p>
+			<p id="txt4" class="txte">为您节省   0.00元</p>
+			<p id="txt4">(含¥0.00礼物包装费)</p>
+			<p id="txt5">结算方式</p>
+			<p id="txt5"><input type="radio" id="check" checked="checked" />
+			<img src="img/shop-3.png"/></p>
+			<p id="txt6">若您遇到支付问题，请联系客服热线 400 897 6336（工作日 09:00-18:00）</p>
+			<p id="txt6"><a id="a2"href="javacript:;">结算</a></p>
+		</div>
+	</body>
+</html>

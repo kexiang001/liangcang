@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<link rel="stylesheet" href="css/index.css" />
 		<style type="text/css">
 			*{margin: 0;padding: 0;}
 			li{list-style: none;}
@@ -14,10 +15,10 @@
 				width:100%;height:50px;background: #25292e;
 			}
 			#header{
-				width:900px;height:50px;margin: 0 auto;
+				width:1000px;height:50px;margin: 0 auto;
 			}
 			#header img{
-				float: left;margin-right:554px ;
+				float: left;margin-right:600px ;
 			}
 			#header ul li a{
 				font-size: 12px;color:#525961
@@ -31,33 +32,102 @@
 			#header ul li.last-li{
 				margin-right: 0px;
 			}
-			#nav{
-				width: 100px;height: 400px;margin-left: 20px;
+			.dakuangkuang ul li .daohuang ul li{
+				width: 100px;height: 20px;margin: 10px;float:left;
 			}
-			#nav li{
-				,margin: 20px;
+			#box{
+				width:900px;height:50px;margin: 500px auto;
 			}
 			#box ul li{
-				float: left;border: 1px solid red;height: 500px;
-				width: 300px;
+				float: left;height: 340px;position:relative;
+				width: 280px;margin:0 8px ;
+			}
+			#box ul li h2{
+				font-size:18px;display: none;position: absolute;left: 20px;top: 80px;
+				
+			}
+			#box ul li span{
+				font-size:18px;color: blue;font-weight: bold;display: none;
+				position: absolute;left: 10px;top: 20px;
+			}
+			#box ul li p{
+				font-size:12px;display: none;position: absolute;left: 20px;top: 140px;
+				
+			}
+			#box ul li a{
+				color: red;width: 90px;height: 30px;border: 1px solid #525961;
+				margin-top:20px ;text-align: center;line-height: 30px;z-index: 3
+				background: #449DC6;position: absolute;left: 70px;bottom: 12px;
+				background: url(img/24749.png) no-repeat 10px 0;padding-left:40px ;
+			}
+			#box ul li div{
+				width: 280px;height:280px;background:rgba(0,0,0,0);
+				position: absolute;left: 0px;top: 0px;z-index: 2;
+			}
+			#box ul li:hover div{
+				background:rgba(0,0,0,0.7);
+			}
+			#box ul li h3 img{
+				width:40px; position: absolute;left: 2px;top:290px;z-index: 3
+			}
+			#box ul li h4{
+				position: absolute;right: 6px;top:298px;width: 60px;font-weight: normal;
+				background: url(img/heart_gray20_18.png) no-repeat 36px 2px;
+			}
+			#box ul li h4:hover{
+				background: url(img/heart_red20_18.png) no-repeat 36px 2px;
+			}
+			#box ul li:hover h2,#box ul li:hover span,#box ul li:hover p{
+				display: block;
+			}
+			#box ul li img:hover,#box ul li h2{
+				
 			}
 			#box ul li img{
-				width: 300px;
+				width: 280px;position: absolute;left: 0px;top: 0px;
+			}
+			#banner{
+				width: 1000px;height: 500px;margin: 0 auto;position:absolute;left:50%;
+				margin-left:-500px;top: 120px;
+			}
+			#banner a{
+				text-decoration:none;width:50px;height:50px;background:rgba(0,0,0,0);color:#fff;
+				text-align:center;line-height:44px;border-radius:50%;display:none;
+				position:absolute;float:left;font-size:50px;font-weight:300;
+			}
+			#banner img{
+				width: 1000px;
+			}
+			#banner a:hover{
+				background:rgba(0,0,0,0.4);
+			}
+			#banner a#pre{
+				left:20px;top:189px;
+			}
+			#banner a#next{
+				right:20px;top:189px;
+			}
+			#banner ul{
+				position:absolute;left:50%;margin-left:-30px;bottom:0px;z-index:1;
+			}
+			#banner ul li {
+				width:20px;height:4px;background:#ccc;list-style:none;
+				float:left;margin-right:6px;
 			}
 		</style>
 	</head>
 	<body>
 		<div id="header-bg">
 			<div id="header">
-				<a href="index.html"><img src="img/header-logo.png"/></a>
+				<a href="index.html"><img id="imga"src="img/header-logo.png"/></a>
 				<ul>
-					<li class="first-li">
+					<li class="first-li" id="first-li">
 						<a href="login.html">登录</a>
 						<a href="register.html">注册</a>
 					</li>
 					<li>|</li>
 					<li>
-						<a href="javascript:;">购物车</a>
+						<a href="shop.html">购物车</a>
 					</li>
 					<li>|</li>
 					<li>
@@ -70,9 +140,43 @@
 				</ul>
 			</div>
 		</div>
-		<ul id="nav">
-			
-		</ul>
+		<div class="dakuangkuang">
+			    <ul id="ul">
+					<li class="shouye">
+						<a href="#">首页</a>
+					</li>
+					<li class="qiyu">
+						<a href="javascript:;">商店</a>
+						<div class="daohuang">
+							<ul id="nav">
+							</ul>
+						</div>
+					</li>
+					<li class="qiyu">
+						<a href="javascript:;">分享</a>
+					</li>
+					<li class="qiyu">
+						<a href="javascript:;">达人</a>
+					</li>
+			    </ul> 
+			    <div class="right">
+			    	<div class="zhongjian" id="zhong"> 
+			    		<input id="input" placeholder="search" type="text" />
+			    		<a class="back" id="backs"></a>
+			    	</div>
+			    </div>
+		</div>
+		<div id="banner">
+			<img id="img"src="img/banner-1.jpg">
+			<a id="pre"href="javascript:;">&lt;</a>
+			<a id="next"href="javascript:;">&gt;</a>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+   		</div>
+		
 		<div id="box">
 			<ul id="list">
 				
@@ -84,6 +188,26 @@
 <script type="text/javascript">
  	var oUl = document.getElementById("nav")
  	var oUla = document.getElementById("list")
+ 	var oFirst = document.getElementById("first-li")
+ 	var oImga = document.getElementById("imga")
+ 	var strToken;
+ 	
+	strToken = localStorage.getItem("token")
+	var  username = localStorage.getItem("username")
+	if(username != null){
+		oFirst.innerHTML = username;
+		oImga.style.marginRight = '560px'
+		oFirst.style.width = '80px';
+		oFirst.style.overflow = 'hidden';
+		oFirst.style.paddingLeft = '32px'
+		oFirst.style.background = 'url(img/header_d_head.png) no-repeat 0 10px'
+	}
+//	oFirst.onclick= function(){
+//		localStorage.setItem("username",null)
+//		localStorage.setItem("password",null)
+//		localStorage.setItem("token",null);
+//	}
+	
 	ajax({
 		method:"GET",
 		url: "http://csit.top/api_cat.php",
@@ -100,38 +224,8 @@
 			}
 		}
 	}); 
-//	function func(a){
-//		ajax({
-//		method: "GET",
-//		url: "http://csit.top/api_goods.php",
-//		json: {
-//			cat_id: a,  // 分类： 45， 62
-//			page: 1,
-//			pagesize: 1000
-//		},
-//		pc: function(a) {
-//			
-//			var arr = a.data 
-//			for (var i = 0; i < arr.length; i++) { 
-//				var oLi = document.createElement('li');
-//				var oH2 = document.createElement('h2');
-//				var oP = document.createElement('p');
-//				var oSpan = document.createElement('span');
-//				 oH2.innerHTML = arr[i].goods_name;
-//				 oP.innerHTML = arr[i].goods_desc;
-//				 oSpan.innerHTML = '¥' + arr[i].price;
-//				oLi.innerHTML = '<img src="' +  arr[i].goods_thumb+ '" />'
-//				oLi.appendChild(oH2);
-//				oLi.appendChild(oP);
-//				oLi.appendChild(oSpan);
-//				oUla.appendChild(oLi);
-//				
-//			}
-//			
-//		}
-//	})
-//	}
-	function func(a) {
+
+function func(a) {
 	
 	ajax({
 		method: "GET",
@@ -147,15 +241,117 @@
 			
 			var arr = a.data  
 			for (var i = 0; i < arr.length; i++) {
-				
-				b +=('<li>'+ '<img src="' +  arr[i].goods_thumb+ '" />'
+				var c = Math.floor(Math.random()*300 + 40);
+				b +=('<li>'+ '<h3>'+'<img src="' +  arr[i].goods_thumb+ '" />'+'</h3>'+'<img src="' +  arr[i].goods_thumb+ '" />'
 				+ '<h2>'+arr[i].goods_name+'</h2>'
 				+'<p>'+arr[i].goods_desc+'</p>'
-				+ '</span>'+'¥' + arr[i].price+'</span>'+'</li>');
+				+ '<span>'+'¥' + arr[i].price+'</span>'
+				+'<a href="#" onclick="aa('+ arr[i].goods_id +')">'
+				+ '加入购物车</a>'+'<div></div>'
+				+'<h4>'+c+'</h4></li>');
 			}
 			
 			document.getElementById("list").innerHTML = b
 		}
 	})
 }
+ajax({
+		method: "GET",
+		url: "http://csit.top/api_goods.php",
+		json: {
+			cat_id: 45,  
+			page: 1,
+			pagesize:8
+			
+		},
+		pc: function(a) {
+			
+			var b = ""
+			
+			var arr = a.data  
+			
+			for (var i = 0; i < arr.length; i++) {
+				b +=('<li>'+'<a href="#" onclick="aa('+ arr[i].goods_id +')">'
+				+ '<img src="' +  arr[i].goods_thumb+ '" />'+'</a>'+'</li>');
+				
+			}
+			
+		}
+	})
+
+function aa(a){
+	ajax({
+			method:"POST",
+			url: "http://csit.top/api_cart.php",
+			
+			json:{
+				goods_id:a,
+				number:1
+			},
+			token: strToken,
+			pc:function(date){
+				console.log(date)
+				alert(date.message)
+				
+			}
+	})
+}
+var oPre = document.getElementById('pre');
+	var oBanner = document.getElementById('banner');
+	var oNext = document.getElementById('next');
+	var oImg = document.getElementById('img');
+	var oDian = oBanner.getElementsByTagName('li');
+	var a = 1;
+	var timer;
+	oDian[a-1].style.background='#555252';
+	autos();
+	oBanner.onmouseout = function(){
+		oPre.style.display = 'none';
+		oNext.style.display = 'none';
+		autos();
+	}
+	oBanner.onmouseover = function(){
+		oPre.style.display = 'block';
+		oNext.style.display = 'block';
+		clearInterval(timer);
+	}
+	
+	oPre.onclick = function(){
+		a--;
+
+		if(a == 0){
+			a = 3;
+		}
+		move();
+	}
+	oNext.onclick = function(){
+		a++;
+		if(a == 4){
+			a = 1;
+		}
+		move();
+	}
+	for(var j = 0;j<oDian.length;j++){
+		oDian[j].idx = j;
+		oDian[j].onclick = function(){
+			a = this.idx+1;
+			move();
+		}
+	}
+	function autos (){
+		timer = setInterval(function(){
+			a++;
+			if(a == 4){
+				a = 1;
+			}
+			move();
+		},1000)
+	}
+	function move(){
+		for(var i = 0;i<oDian.length;i++){
+			oDian[i].style.background='#ccc';
+		}
+		oDian[a-1].style.background='#555252';
+		oImg.src = 'img/banner-'+a+'.jpg';
+	}
 </script>

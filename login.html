@@ -117,11 +117,15 @@
 		}
 		server(json,function(obj){
 			if(obj.code == 0){
+				location.href = "http://127.0.0.1:8020/liangcang/index.html";
 				alert(obj.message)
 				if(autoLogin.checked == true){
 					localStorage.setItem("username",strUsername)
 					localStorage.setItem("password",strPassword)
+					localStorage.setItem("token",obj.data.token);
 				}
+				//alert(obj.data.token)
+				
 				
 			}else{
 				alert(obj.message)
@@ -146,4 +150,5 @@
 			});
 		}
 	}
+	
 </script>

@@ -123,6 +123,8 @@
 		server(json,function(obj){
 			if(obj.code == 0){
 				alert('注册成功');
+			}else{
+				alert(obj.message);
 			}
 		});
 	}

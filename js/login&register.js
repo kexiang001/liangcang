@@ -56,7 +56,9 @@ function ajax(obj){
 		obj.url += getParams(obj.json) 
 	}
 	xhr.open(obj.method, obj.url, true);
-	
+	if(obj.token){
+		xhr.setRequestHeader('token', obj.token);
+	}
 	if(obj.method == "GET"){
 		xhr.send();
 	}else{
